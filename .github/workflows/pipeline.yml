@@ -52,18 +52,12 @@ jobs:
             healthcheck: "https://blogsamu.herokuapp.com/health"
             checkstring: "ok"
             rollbackonhealthcheckfailed: true
+        - uses: actions/checkout@v2
         - name: Bump version and push tag
           if: ${{ github.event_name == 'push' && !(contains( join( toJson(github.event.commits.*.message) ), '#skip')) }}
-          id: tag_version
-          uses: mathieudutour/github-tag-action@v5.1
+          uses: anothrNick/github-tag-action@1.33.0
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-        - name: Create a GitHub release
-          uses: actions/create-release@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            tag_name: ${{ steps.tag_version.outputs.new_tag }}
-            release_name: Release ${{ steps.tag_version.outputs.new_tag }}
-            body: ${{ steps.tag_version.outputs.changelog }}
+            DEFAULT_BUMP: patch
+            RELEASE_BRANCHES: main
 
