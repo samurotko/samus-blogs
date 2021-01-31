@@ -1,1 +1,1 @@
-"# samus-blogs" 
+"# bloglist" 

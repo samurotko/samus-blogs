@@ -1,0 +1,8 @@
+POST https://samus-blogs.herokuapp.com/api/users
+content-type: application/json
+
+{ 
+    "username": "samu",
+    "name": "sam",
+    "password": "salasana"
+}
