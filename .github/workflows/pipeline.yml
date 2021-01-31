@@ -22,9 +22,9 @@ jobs:
         - name: npm install frontend
           working-directory: './bloglist-frontend'
           run: npm install
-        #- name: lint
-          #working-directory: './full-stack-open-pokedex'
-          #run: npm run eslint
+        - name: lint
+          working-directory: './bloglist-frontend'
+          run: npm run lint
         - name: build
           working-directory: './bloglist-frontend'
           run: npm run build
