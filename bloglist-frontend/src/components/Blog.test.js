@@ -1,6 +1,5 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { prettyDOM } from '@testing-library/dom'
 import { render, fireEvent } from '@testing-library/react'
 import Blog from './Blog'
 
@@ -8,9 +7,9 @@ describe('blogtest', () => {
     let component
 
     const blog = {
-        title: "test title",
-        author: "test author",
-        url: "test url",
+        title: 'test title',
+        author: 'test author',
+        url: 'test url',
         likes: 69,
         user: 'samu',
         id: '163764387402'
