@@ -8,7 +8,7 @@ import { notification } from '../reducers/notificationReducer'
 import { createNew } from '../reducers/blogReducer'
 
 
-const AddBlog = (props) => {
+const AddBlog = () => {
 
   const [newTitle, setNewTitle] = useState('') 
   const [newAuthor, setNewAuthor] = useState('') 

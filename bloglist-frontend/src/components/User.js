@@ -1,10 +1,10 @@
 import React from 'react'
-import  {useParams} from "react-router-dom"
+import  { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
   
   const User = () => {
-    const users = useSelector(state=>state.user)
+    const users = useSelector(state => state.user)
     const id = useParams().id
     console.log('rendering user',users,id)
     if(users.constructor !== Array){
@@ -16,11 +16,11 @@ import { useSelector } from 'react-redux'
     console.log('user is',user)
     return (
       <div>
-        <h1>{user.name}</h1>
+        <h1>{ user.name }</h1>
         <h2>added blogs</h2>
         <ul>
         {user.blogs.map(blog => <li key={blog.id}>
-            {blog.title}
+            { blog.title }
         </li>)}
         </ul>
       </div>

@@ -1,4 +1,4 @@
-const initialState = {color: '', message: '', time: 5}
+const initialState = { color: '', message: '', time: 5 }
 
 
 export const notification = (color, message, time) => {
@@ -9,7 +9,7 @@ export const notification = (color, message, time) => {
     // timer = setTimeout(()=>dispatch(deleteNotification()),time*1000)
     dispatch({
         type: 'NOTIFICATION',
-        data: {color: color, message: message, time: time}
+        data: { color: color, message: message, time: time }
     })
 }
 }
@@ -18,7 +18,7 @@ export const deleteNotification = () => {
     return dispatch => {
         dispatch({
         type: 'DELETE_NOTIFICATION',
-        data: {color: '', message: ''}
+        data: { color: '', message: '' }
     })
     }
 }
@@ -30,7 +30,7 @@ const notificationReducer = (state = initialState, action) => {
     switch(action.type){
   
         case 'NOTIFICATION':
-            console.log("case new, state is",state)
+            console.log('case new, state is',state)
             console.log('action.data is',action.data)
             return action.data
 

@@ -70,22 +70,23 @@ const blogReducer = (state = [], action) => {
   switch(action.type){
 
     case 'NEW_BLOG':
-      console.log("case new, state is",state)
+      console.log('case new, state is',state)
       console.log('action.data is',action.data)
       return [...state, action.data]
 
-    case 'LIKE_BLOG':
+    case 'LIKE_BLOG': {
 
-      console.log("liking, state is",state)
+      console.log('liking, state is',state)
    
       const liked = action.data
       console.log('liked is',liked)
       return state.map(a =>
         a.id !== liked.id ? a : liked 
       ).sort((a,b) => b.likes-a.likes)
+    }
 
-    case 'DELETE_BLOG':
-        console.log("case delet, state is",state)
+    case 'DELETE_BLOG': {
+        console.log('case delet, state is',state)
         console.log('action.data is',action.data)
         const id = action.data
         const newBlogs = [...state]
@@ -93,19 +94,21 @@ const blogReducer = (state = [], action) => {
         newBlogs.splice(state.findIndex(blog => blog.id===id),1)
         console.log('new blog2', newBlogs)
         return newBlogs
+    }
 
-    case 'INIT_BLOGS':
+    case 'INIT_BLOGS': {
       console.log('initing',action.data)
       return action.data.sort((a,b) => b.likes-a.likes)
+    }
     
-    case 'COMMENT':
-        console.log("case comment, state is",state)
+    case 'COMMENT': {
+        console.log('case comment, state is',state)
         console.log('action.data is',action.data)
         const commented = action.data
         return state.map(a =>
           a.id !== commented.id ? a : commented 
         )
-
+    }
     default: 
       return state
   }

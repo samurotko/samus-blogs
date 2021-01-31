@@ -26,7 +26,7 @@ const BlogList = ({ blogs }) => {
                 {blogs.map(blog =>
                 <TableRow key = {blog.id}>
                     <TableCell>
-                    <Link  to={`/blogs/${blog.id}`} onClick={()=>dispatch(initializeBlogs())}>{blog.title}</Link>
+                    <Link  to={`/blogs/${blog.id}`} onClick={() => dispatch(initializeBlogs())}>{blog.title}</Link>
                     </TableCell>
                 </TableRow>
                 )}

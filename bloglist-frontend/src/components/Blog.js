@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import  {useParams} from "react-router-dom"
+import  { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { like, deleteBlog } from '../reducers/blogReducer'
 import AddCommet from '../services/addComment'
@@ -9,7 +9,7 @@ import AddCommet from '../services/addComment'
 const Blog = () => {
     const [viewAll, setViewAll] = useState(false)
     const dispatch = useDispatch()
-    const blogs = useSelector(state=>state.blogs)
+    const blogs = useSelector(state => state.blogs)
 
     const id = useParams().id
     console.log('rendering blog',blogs,id)

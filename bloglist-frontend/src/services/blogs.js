@@ -26,7 +26,7 @@ const comment = async (props) => {
     console.log('commet props',props)
     const url = `${baseUrl}/${props.id}/comments`
     console.log('posting to',url)
-    const response = await axios.post(url, {content: props.comment})
+    const response = await axios.post(url, { content: props.comment })
     return response.data
 }
 
@@ -43,7 +43,7 @@ const remove = async (props) => {
     console.log('url',url)
     console.log(props)
     const config = {
-        data: {delete: 'yes'},
+        data: { delete: 'yes' },
         headers: { Authorization: token },
     }
     console.log('config',config)

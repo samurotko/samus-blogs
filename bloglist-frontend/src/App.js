@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch, Route, Link
-} from "react-router-dom"
+} from 'react-router-dom'
 import {
   Button,
   Toolbar,
@@ -31,8 +31,8 @@ const App = () => {
       dispatch(initializeBlogs())
     }, [dispatch])
 
-    const blogs = useSelector(state=>state.blogs)
-    const user = useSelector(state=>state.user)
+    const blogs = useSelector(state => state.blogs)
+    const user = useSelector(state => state.user)
     console.log('blogs',blogs)
 
 
@@ -100,7 +100,7 @@ const App = () => {
         <Button color="inherit" component={Link} to="/">
           home
         </Button>
-        <Button color="inherit" component={Link} to="/users" onClick={()=>dispatch(allUsers())}>
+        <Button color="inherit" component={Link} to="/users" onClick={() => dispatch(allUsers())}>
           users
         </Button>
           <em>{user.name} logged in</em>  

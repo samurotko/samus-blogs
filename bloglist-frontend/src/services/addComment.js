@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { comment } from '../reducers/blogReducer'
 
 
-const AddComment = ({id}) => {
+const AddComment = ({ id }) => {
 
   const [newComment, setComment] = useState('') 
   
@@ -11,7 +11,7 @@ const AddComment = ({id}) => {
     const addComment = (event) => {
         event.preventDefault()
         console.log('dispatching',newComment,id)
-        dispatch(comment({comment:newComment,id:id}))
+        dispatch(comment({ comment:newComment,id:id }))
         setComment('')
     }
 

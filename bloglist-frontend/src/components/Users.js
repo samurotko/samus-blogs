@@ -16,7 +16,7 @@ const UserList = () => {
     console.log('dispatching')
     //dispatch(allUsers())
     console.log('dispatched')
-    const users = useSelector(state=>state.user)
+    const users = useSelector(state => state.user)
     console.log('users are',users)
     if(users.constructor !== Array){
       return null
@@ -42,7 +42,7 @@ const UserList = () => {
           </TableRow>
             {users.map(user => <TableRow key={user.id} >
               <TableCell> 
-                <Link to={`/users/${user.id}`} onClick={()=>dispatch(allUsers())}>{user.username}</Link>
+                <Link to={`/users/${user.id}`} onClick={() => dispatch(allUsers())}>{user.username}</Link>
               </TableCell>
               <TableCell>{numOfBlogs(user)}</TableCell>
           </TableRow>

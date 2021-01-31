@@ -4,14 +4,14 @@ import { deleteNotification } from '../reducers/notificationReducer'
 
 
 const Notification = () => {
-  const notification = useSelector(state=>state.notification)
+  const notification = useSelector(state => state.notification)
   const dispatch = useDispatch()
   console.log('notification',notification)
 
   if (notification.message === '') {
         return null
   }
-  setTimeout(()=>dispatch(deleteNotification()),notification.time*1000)
+  setTimeout(() => dispatch(deleteNotification()),notification.time*1000)
     //console.log('props',props)
     const notificationStyle =  {
         color: notification.color,

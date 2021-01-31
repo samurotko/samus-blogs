@@ -1,7 +1,7 @@
 import blogService from '../services/blogs'
 import loginService from '../services/login' 
 import userService from '../services/users'
-import {notification} from './notificationReducer'
+import { notification } from './notificationReducer'
 
 
 const initialState=null
@@ -20,7 +20,7 @@ export const logIn = (username,password) => {
       console.log('logged in!')
     dispatch({
       type: 'LOGIN',
-      data: {username: username, password: password},
+      data: { username: username, password: password },
     })
   } catch (exception) {
       console.log('login failed!')
@@ -61,17 +61,17 @@ const userReducer = (state = initialState, action) => {
   switch(action.type){
 
     case 'LOGIN':
-      console.log("case login, state is",state)
+      console.log('case login, state is',state)
       console.log('action.data is',action.data)
       return action.data
 
     case 'LOGGEDIN':
-        console.log("case loggedin, state is",state)
+        console.log('case loggedin, state is',state)
         console.log('action.data is',action.data)
         return action.data
 
     case 'ALL_USERS':
-        console.log("case all users, state is",state)
+        console.log('case all users, state is',state)
         console.log('action.data is',action.data)
         return action.data
     
