@@ -21,6 +21,14 @@ const UserList = () => {
     if(users.constructor !== Array){
       return null
     }
+
+    const numOfBlogs = (user) => {
+      if(user){
+        return user.blogs.length
+      }
+      return 0
+    }
+
     return(
     <div>
         
@@ -36,7 +44,7 @@ const UserList = () => {
               <TableCell> 
                 <Link to={`/users/${user.id}`} onClick={()=>dispatch(allUsers())}>{user.username}</Link>
               </TableCell>
-              <TableCell>{user.blogs.length || 0}</TableCell>
+              <TableCell>{numOfBlogs(user)}</TableCell>
           </TableRow>
         )}
           </TableBody>
