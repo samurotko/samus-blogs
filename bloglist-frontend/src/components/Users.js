@@ -23,7 +23,7 @@ const UserList = () => {
     }
 
     const numOfBlogs = (user) => {
-      if(user){
+      if(user.blogs){
         return user.blogs.length
       }
       return 0
