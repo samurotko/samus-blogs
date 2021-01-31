@@ -1,0 +1,56 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+    
+  workflow_dispatch:
+
+jobs:
+  simple_deployment_pipeline:
+      runs-on: ubuntu-18.04
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+             node-version: '12.x'
+        - name: npm install backend
+          run: npm install
+        - name: npm install frontend
+          working-directory: './bloglist-frontend'
+          run: npm install
+        #- name: lint
+          #working-directory: './full-stack-open-pokedex'
+          #run: npm run eslint
+        - name: build
+          working-directory: './bloglist-frontend'
+          run: npm run build
+        - name: move build
+          working-directory: './bloglist-frontend'
+          run: mv './build' '../'
+        #- name: npm test
+          #working-directory: './full-stack-open-pokedex'
+          #run: npm run test
+        #- name: e2e tests    
+          #uses: cypress-io/github-action@v2
+          #with:
+            #working-directory: './full-stack-open-pokedex'
+            #command: npm run test:e2e
+            #start: npm run start
+            #wait-on: http://localhost:5000
+        - name: heroku deploy
+          if: ${{ github.event_name == 'push' && !(contains( join( toJson(github.event.commits.*.message) ), '#skip')) }}
+          uses: akhileshns/heroku-deploy@v3.8.9 # This is the action
+          with:
+            #appdir: "full-stack-open-pokedex"
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "samus-blogs" #Must be unique in Heroku
+            heroku_email: "samu.rotko@gmail.com"
+            healthcheck: "https://samus-blogs.herokuapp.com/health"
+            checkstring: "ok"
+            rollbackonhealthcheckfailed: true
+       
+      
