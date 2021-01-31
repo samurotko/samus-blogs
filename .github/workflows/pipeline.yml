@@ -47,9 +47,9 @@ jobs:
           with:
             #appdir: "full-stack-open-pokedex"
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: "samus-blogs" #Must be unique in Heroku
+            heroku_app_name: "blogsamu" #Must be unique in Heroku
             heroku_email: "samu.rotko@gmail.com"
-            healthcheck: "https://samus-blogs.herokuapp.com/health"
+            healthcheck: "https://blogsamu.herokuapp.com/health"
             checkstring: "ok"
             rollbackonhealthcheckfailed: true
        
