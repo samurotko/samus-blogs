@@ -1,5 +1,5 @@
 import axios from 'axios'
-import baseUrl from '../config'
+const baseUrl = '/api/users'
 
 
 const getAll = () => {
