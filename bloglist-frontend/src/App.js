@@ -127,6 +127,7 @@ const App = () => {
         <BlogList blogs={blogs}/>
         </Route>
       </Switch>
+      
     </Router>
     </div>
     </Container>
