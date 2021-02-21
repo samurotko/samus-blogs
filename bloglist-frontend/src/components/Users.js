@@ -39,14 +39,14 @@ const UserList = () => {
           <TableRow>
             <TableCell></TableCell>
             <TableCell><b>blogs created</b></TableCell>
-          </TableRow>
-            {users.map(user => <TableRow key={user.id} >
-              <TableCell> 
-                <Link to={`/users/${user.id}`} onClick={() => dispatch(allUsers())}>{user.username}</Link>
-              </TableCell>
-              <TableCell>{numOfBlogs(user)}</TableCell>
-          </TableRow>
-        )}
+            </TableRow>
+              {users.map(user => <TableRow key={user.id} >
+                <TableCell> 
+                  <Link to={`/users/${user.id}`} onClick={() => dispatch(allUsers())}>{user.username}</Link>
+                </TableCell>
+                <TableCell>{numOfBlogs(user)}</TableCell>
+            </TableRow>
+              )}
           </TableBody>
         </Table>
       </TableContainer>

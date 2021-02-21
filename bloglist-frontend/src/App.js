@@ -7,8 +7,8 @@ import {
 import {
   Button,
   Toolbar,
-  AppBar
-
+  AppBar,
+  TextField,
 } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import Blog from './components/Blog'
@@ -66,7 +66,7 @@ const App = () => {
         <form onSubmit={handleLogin}>
           <div>
             username
-              <input
+            <TextField
               type="text"
               id='username'
               value={username}
@@ -76,7 +76,7 @@ const App = () => {
           </div>
           <div>
             password
-              <input
+            <TextField
               type="password"
               id='password'
               value={password}
@@ -84,8 +84,9 @@ const App = () => {
               onChange={({ target }) => setPassword(target.value)}
             />
           </div>
-          <button id="login-button" type="submit">login</button>
+          <Button variant="contained" color="primary" id="login-button" type="submit">login</Button>
         </form>
+        <i>You can Login using username: user password: user</i>
         </div>
         </Container>
   )}
