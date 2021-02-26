@@ -31,16 +31,6 @@ jobs:
         - name: move build
           working-directory: './bloglist-frontend'
           run: mv './build' '../'
-        #- name: npm test
-          #working-directory: './full-stack-open-pokedex'
-          #run: npm run test
-        #- name: e2e tests    
-          #uses: cypress-io/github-action@v2
-          #with:
-            #working-directory: './full-stack-open-pokedex'
-            #command: npm run test:e2e
-            #start: npm run start
-            #wait-on: http://localhost:5000
         - name: heroku deploy
           if: ${{ github.event_name == 'push' && !(contains( join( toJson(github.event.commits.*.message) ), '#skip')) }}
           uses: akhileshns/heroku-deploy@v3.8.9 # This is the action
