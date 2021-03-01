@@ -113,7 +113,7 @@ const App = () => {
           <em>{user.name} logged in</em>  
         <Button color="inherit" onClick={() => {
           window.localStorage.clear()
-          user=null
+          window.location.reload()
           }}>
           logOut
         </Button> 
