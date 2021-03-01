@@ -32,7 +32,7 @@ const App = () => {
     }, [dispatch])
 
     const blogs = useSelector(state => state.blogs)
-    const user = useSelector(state => state.user)
+    var user = useSelector(state => state.user)
     console.log('blogs',blogs)
 
 
@@ -87,6 +87,12 @@ const App = () => {
           <Button variant="contained" color="primary" id="login-button" type="submit">login</Button>
         </form>
         <i>You can Login using username: user password: user</i>
+        <i>
+
+        App uses mongoDB as a database, Redux based Flux architecture and it has separate front- and backends 
+        (nested together for deployment). I have also implemented Github Actions based CI/CD pipeline,
+        with Eslint, Jest and Cypress testing.
+        </i>
         </div>
         </Container>
   )}
@@ -105,7 +111,10 @@ const App = () => {
           users
         </Button>
           <em>{user.name} logged in</em>  
-        <Button color="inherit" onClick={() => window.localStorage.clear()}>
+        <Button color="inherit" onClick={() => {
+          window.localStorage.clear()
+          user=null
+          }}>
           logOut
         </Button> 
       </Toolbar>
